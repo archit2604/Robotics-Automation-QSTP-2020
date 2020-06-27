@@ -36,7 +36,7 @@ To view the videos for the simulations mentioned above use the links below:
 2.[project.mp4](https://drive.google.com/file/d/194T3X2nGx4aL0TaW3E1d5iXrDL4LHSjj/view?usp=sharing)
 
 ## Please follow these instructions to reproduce the results:
-To clone and run omnibase follow [Omnibase Github repository](https://github.com/ERC-BPGC/omnibase).
+To setup the testing environment follow this [PDF File](https://github.com/adbidwai/QSTP-Robotics_Automation_using_ROS/blob/master/project/QSTP%20Final%20Project.pdf).
 
 Clone project:
 
