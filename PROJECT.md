@@ -6,7 +6,7 @@
 - The controller used for the motion of the omnibase is a PID controller.
 ### The project submission has two versions project_fixed and project:
 - project_fixed- The files with the name project_fixed are for the robotics navigation stack which makes the omnibase travel from (0,0) to (6,6) avoiding obstacles in an obstacle filled environment.
-- project- The files with the name projectare for the robotics navigation stack which makes the omnibase travel from anypoint to anypoint in the 6*6 grid in the first quadrant and starting at the origin. 
+- project- The files with the name projectare for the robotics navigation stack which makes the omnibase travel from anypoint to anypoint in the 6*6 grid in the first quadrant,starting at the origin. 
 
 ## Navigation Stack Contents:
 ### For project_fixed:
@@ -19,7 +19,7 @@ This stack also has a roslaunch file. autonav_fixed.launch. This launch file run
 ### For project:
 There are three ROS nodes in this stack(/project/src):
 - obstacle.py-This is a obstacle detector node which publishes a fixed list of obstacles.
-- planner.py-Path Planner node which subscribes to obstacles, asks the user for the goal in the 6*6 grid in the first quadrant and starting at the origin and publishes a path to the goal.After reaching the goal it asks the user whether he wants to make the bot travel to another point and continues to do so until the user says No.
+- planner.py-Path Planner node which subscribes to obstacles, asks the user for the goal in the 6*6 grid in the first quadrant,starting at the origin and publishes a path to the goal.After reaching the goal it asks the user whether he wants to make the bot travel to another point and continues to do so until the user says No.
 - controller.py-Controller node which subscribes to the path and publishes cmd_vel.
 
 This stack also has a roslaunch file. autonav.launch. This launch file runs all the above mentioned three nodes and also starts the omnibase in the given obstacle filled environment.It also launches a seperate terminal window to take inputs from the user.
