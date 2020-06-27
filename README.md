@@ -7,6 +7,6 @@
 
 4.The folder bagfiles contains the bagfiles for week2 and 3
 
-THe folders project and projectbag have the contents for the final projects
+The folders project and projectbag have the contents for the final projects
 
  [Click here](./PROJECT.md) to go to the README file for the final project.
