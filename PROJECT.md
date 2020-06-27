@@ -1,4 +1,4 @@
-# FINAL PROJECT
+# PROJECT-Automation of Omnibase
 ## Project Details:
 - The task attempted is Task 1.1 i.e. Automation of Omnibase.
 - The code stack uses PRM and A* Star search to plan the path, with the heuristic as euclidean distance.
@@ -34,3 +34,39 @@ To view the videos for the simulations mentioned above use the links below:
 
 2.[project.mp4](https://drive.google.com/file/d/194T3X2nGx4aL0TaW3E1d5iXrDL4LHSjj/view?usp=sharing)
 
+## Please follow these instructions to reproduce the results:
+To clone and run omnibase follow [Omnibase Github repository](https://github.com/ERC-BPGC/omnibase).
+
+Clone project:
+
+  1.Download the repository as a ZIP file
+
+  2.Unpack it
+
+  3.Copy the project folder and paste them in your /catkin_ws/src
+
+  4.Now run:
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+Run project_fixed stack:
+```bash
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch project autonav_fixed.launch
+```
+A Gazebo window opens up with the omnibase in a obstacle laden field.Another terminal window opens upshowing the status of the stack.Please wait while the bot analysises it surroundings and plans the path from (0,0) to (6,6).
+
+Use Ctrl+C to stop the nodes.
+
+Run project stack:
+```bash
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch project autonav.launch
+```
+A Gazebo window opens up with the omnibase in a obstacle laden field.Another terminal window opens up showing the status of the stack.Please wait while the bot analysises it surroundings.After that it asks the user for the goal. If the goal is to close to a obstacle or outside the 6*6 grid in the first quadrant,starting at the origin its asks the user to enter a new goal.It plans the path to the goal optimises it and then guides the bot towards the goal.After reaching the goal it asks the user whether he wants to make the bot travel to another point and continues to do so until the user says No.
+
+Use Ctrl+C to stop the nodes.
