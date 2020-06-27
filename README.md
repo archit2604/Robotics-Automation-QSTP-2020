@@ -1,5 +1,5 @@
 # Robotics-Automation-QSTP-2020
-To clone the repository to your ROS workspace:
+To clone the repository:
 ```bash
 cd ~/catkin_ws/src
 git clone https://github.com/archit2604/Robotics-Automation-QSTP-2020.git
