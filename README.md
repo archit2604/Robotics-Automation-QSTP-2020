@@ -13,6 +13,6 @@ git clone https://github.com/archit2604/Robotics-Automation-QSTP-2020.git
 
 4.The folder bagfiles contains the bagfiles for week2 and 3
 
-The folders project and projectbag have the contents for the final projects
+The folders project and projectbag have the contents for the final project.
 
  [Click here](./PROJECT.md) to go to the README file for the final project.
