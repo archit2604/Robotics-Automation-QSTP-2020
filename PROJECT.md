@@ -2,6 +2,7 @@
 ## Project Details:
 - The task attempted is Task 1.1 i.e. Automation of Omnibase.
 - The code stack uses PRM and A* Star search to plan the path, with the heuristic as euclidean distance.
+- The path planner also has a optimizer function which optimizes the path.
 - The controller used for the motion of the omnibase is a PID controller.
 ### The project submission has two versions project_fixed and project:
 - project_fixed- The files with the name project_fixed are for the robotics navigation stack which makes the omnibase travel from (0,0) to (6,6).
