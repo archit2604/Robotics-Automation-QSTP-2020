@@ -1,8 +1,12 @@
 # Robotics-Automation-QSTP-2020
-This the README file for Robotics-Automation-QSTP-2020
+1.week1 folder have the contents for week1 assignment
 
-tb_task folder is for week2
+2.tb_task folder have the contents for week2 assignment
 
-The folder bagfiles contains the bagfiles for week2 and 3
+3.week3 folder have the contents for week3 assignment
 
-Click on [Readme_for_Project](./PROJECT.md) to go to the README file for the final project.
+4.The folder bagfiles contains the bagfiles for week2 and 3
+
+THe folders project and projectbag have the contents for the final projects
+
+ [Click here](./PROJECT.md) to go to the README file for the final project.
