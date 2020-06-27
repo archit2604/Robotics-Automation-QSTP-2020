@@ -21,7 +21,6 @@ def optimize():
     global optimized_path
     global obstacle_list
     optimized_path = Path()
-    # Init optimized path with the start as first point in path.
     x = path.poses[0].pose.position.x
     y = path.poses[0].pose.position.y
     pose = PoseStamped()
@@ -35,15 +34,11 @@ def optimize():
     ):
         return 1
 
-    # Loop through all points in path, checking for LOS shortening
     current_index = 0
     while current_index < len(path.poses) - 1:
 
-        # Keep track of whether index has been updated or not
         index_updated = False
 
-        # Loop from last point in path to the current one, checking if
-        # any direct connection exists.
         for lookahead_index in range(len(path.poses) - 1, current_index, -1):
             if not chk_obs_coor(
                 path.poses[current_index].pose.position.x,
@@ -51,8 +46,6 @@ def optimize():
                 path.poses[lookahead_index].pose.position.x,
                 path.poses[lookahead_index].pose.position.y,
             ):
-                # If direct connection exists then add this lookahead point to optimized
-                # path directly and skip to it for next iteration of while loop
                 x = path.poses[lookahead_index].pose.position.x
                 y = path.poses[lookahead_index].pose.position.y
                 pose = PoseStamped()
@@ -64,10 +57,7 @@ def optimize():
                 index_updated = True
                 break
 
-        # If index hasnt been updated means that there was no LOS shortening
-        # and the edge between current and next point passes through an obstacle.
         if not index_updated:
-            # In this case we return the path so far
             return 1
 
     return 1
@@ -87,7 +77,6 @@ def reverse():
         path_new.poses.append(pose)
 
 
-# Check if a neighbor should be added to open list
 def add_to_open(open_, neighbor):
     for node in open_:
         if neighbor == node and neighbor.f > node.f:
@@ -168,20 +157,16 @@ def sampler(sample_area):
 
 
 class Node:
-
-    # Initialize the class
     def __init__(self, name, parent):
         self.name = name
         self.parent = parent
-        self.g = 0  # Distance to start node
-        self.h = 0  # Distance to goal node
-        self.f = 0  # Total cost
+        self.g = 0
+        self.h = 0
+        self.f = 0
 
-    # Compare nodes
     def __eq__(self, other):
         return self.name == other.name
 
-    # Sort nodes
     def __lt__(self, other):
         return self.f < other.f
 
@@ -243,7 +228,6 @@ class PRM:
     def visualize_tree(graph, obstacle_list):
         global nodes
         plt.clf()
-        # Plot each edge of the tree
         for node in graph.graph_dict:
             for neighbour in graph.graph_dict[node]:
                 plt.plot(
@@ -251,7 +235,6 @@ class PRM:
                     [nodes[int(node)][1], nodes[neighbour][1]],
                 )
 
-        # Draw the obstacles in the environment
         for obstacle in obstacle_list:
             circle1 = plt.Circle((obstacle[0], obstacle[1]), 0.25)
             plt.gcf().gca().add_artist(circle1)
@@ -312,7 +295,6 @@ class PRM:
                 if neighbor in closed:
                     continue
 
-                # Calculate full path cost
                 a = g.graph_dict[int(current_node.name)].index(key)
                 neighbor.g = current_node.g + g.weights[int(current_node.name)][a]
                 neighbor.h = math.sqrt(
@@ -321,12 +303,9 @@ class PRM:
                 )
                 neighbor.f = neighbor.g + neighbor.h
 
-                # Check if neighbor is in open list and if it has a lower f value
                 if add_to_open(open_, neighbor) == True:
-                    # Everything is green, add neighbor to open list
                     open_.append(neighbor)
 
-        # Return None, no path is found
         return False
 
 
